@@ -1,0 +1,42 @@
+article {
+  margin-left: auto;
+  margin-right: auto;
+  height: 50vh;
+  width: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form label {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+}
+
+form input {
+  border-radius: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  font-size: large;
+  font-family: "Manrope", sans-serif;
+}
+
+form div {
+  margin-bottom: 3rem;
+  display: flex;
+}
+
+form button {
+  padding: 0.4rem 1.75rem;
+  font-family: "Manrope", sans-serif;
+  background-color: var(--orange);
+  border-radius: 0.6rem;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--background-gray);
+  font-size: 1.25rem;
+}

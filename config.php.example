@@ -1,0 +1,15 @@
+<?php
+
+return array(
+
+    // AWS Email Key
+    'aws_user' => '',
+    'aws_secret' => '',
+    'from_email' => '',
+
+    // Database connection details
+    'db_host' => '',
+    'db_name' => '',
+    'db_user' => '',
+    'db_password' => ''
+);
