@@ -8,6 +8,9 @@ require("../../functions/db.php");
 require("../../functions/utils.php");
 require("../../functions/aws.php");
 
+$config = require($_SERVER['DOCUMENT_ROOT'] . "/../config.php");
+$base_url = $config['base_url'];
+
 // Check user exists in DB
 $email = sql_sanitise($_POST['email']);
 $sql = "SELECT * FROM users WHERE email='" . trim($email) ."'";
@@ -45,7 +48,7 @@ if ($user_result->num_rows > 0) {
     }
 
     // Send email with magic login link
-    $email_result = sendEmail($user_row['email'], "Demons - Login Link", "Welcome demon! Your login link is https://dev.cfstuff.org/api/validateLogin.php?key=" . $uniqueKey, $aws_key, $aws_secret, $from_email);
+    $email_result = sendEmail($user_row['email'], "Demons - Login Link", "Welcome demon! Your login link is $base_url/api/validateLogin.php?key=" . $uniqueKey, $aws_key, $aws_secret, $from_email);
     if ($email_result != TRUE) {
         echo "Failed to send login email. Exiting.";
         die("Failed to send email. Exiting.");

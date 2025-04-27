@@ -43,4 +43,14 @@ Once the webserver has been configured, rename the `config.php.example` file to 
 
 ## User Management
 
-Only users which have been added to the app will be able to login. There are no passwords but users will be sent a magic login link on attempting to login. To add a new user, run the `scrips/createUser.php' script and follow the wizard to add the user.
+Only users which have been added to the app will be able to login. There are no passwords but users will be sent a magic login link on attempting to login. To add a new user, run the `scripts/createUser.php' script and follow the wizard to add the user.
+
+## Docker (in development)
+
+Currently the web server is available to run in a docker container. Before building the container, you will first need to enter your database credentials and base url in the config.php file. You will also need to provide a `server.crt` and `server.key` in the `docker/cert` directory. The container can be built using
+
+`docker build -t dd-fundraiser .`
+
+and then run with
+
+`docker run --rm -p 443:443 --name dd-fundraiser dd-fundraiser`
