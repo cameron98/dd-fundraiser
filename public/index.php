@@ -13,6 +13,7 @@ $totalMiles = getTotalMiles($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dorset Demons Fundraising Event June 2024 Homepage" />
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +55,7 @@ $totalMiles = getTotalMiles($conn);
 </section>
 
 <div id="center-img-ctn">
-    <img src="/assets/background.png" alt="wheelchair-basketball-image" id="center-image" />
+    <img src="/assets/background_640.png" alt="wheelchair-basketball-image" id="center-image" />
 </div>
 
 <section id="center-block">
@@ -71,11 +72,6 @@ $totalMiles = getTotalMiles($conn);
                     <img src="/assets/youtube.svg" alt="youtube-logo" />
                 </div>
             </a>
-            <!-- <a href="mailto:dorsetdemons@gmail.com">
-                <div class="contact-link">
-                    <img src="/assets/email.svg" alt="email-logo" />
-                </div>
-            </a> -->
             <a href="https://www.instagram.com/dorsetdemonswbc">
                 <div class="contact-link">
                     <img src="/assets/instagram.svg" alt="instagram-logo" />
@@ -111,7 +107,7 @@ $totalMiles = getTotalMiles($conn);
                         $logo_url = "/assets/bronze-medal.svg";
                         break;
                 }
-                echo "<li><div class='leaderboard-div'><img class='leaderboard-logo' src='$logo_url' /><span><p><strong>$name</strong> ($miles miles)</p></span></div></li>";
+                echo "<li><div class='leaderboard-div'><img class='leaderboard-logo' src='$logo_url' alt='medal' /><span><p><strong>$name</strong> ($miles miles)</p></span></div></li>";
                 $i++;
             }
         } else {
