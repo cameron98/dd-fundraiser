@@ -40,7 +40,7 @@ $totalMiles = getTotalMiles($conn);
         
         
         <div id="who-are-we-div">
-            <img alt="dorset demons logo" id="club-logo" src="/assets/dorset-demons-logo.png" />
+            <img alt="dorset demons logo" id="club-logo" src="/assets/demons-logo.png" />
             <div>
                 <h2>Who are we?</h2>
                 <p class="article-text">
@@ -54,7 +54,7 @@ $totalMiles = getTotalMiles($conn);
 </section>
 
 <div id="center-img-ctn">
-    <img src="/assets/background.jpg" alt="wheelchair-basketball-image" id="center-image" />
+    <img src="/assets/background.png" alt="wheelchair-basketball-image" id="center-image" />
 </div>
 
 <section id="center-block">
