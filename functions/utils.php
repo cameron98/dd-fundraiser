@@ -54,7 +54,7 @@ function getTotalMiles($conn) {
         return $row['miles'];
     }
     else {
-        return FALSE;
+        return 0;
     }
 }
 
