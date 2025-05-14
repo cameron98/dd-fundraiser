@@ -23,7 +23,7 @@ $date = sql_sanitise($_POST['date']);
 $miles = sql_sanitise($_POST['miles']);
 $exercise_type = sql_sanitise($_POST['exercise-type']);
 
-if (floatval($miles) > 25) {
+if (floatval($miles) > 100) {
     header("Location: /submitEntry.php?invalidData=1");
     die();
 }
