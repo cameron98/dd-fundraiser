@@ -1,5 +1,11 @@
 <?php
-require("../functions/db.php");
+
+$config = require("../config.php");
+$conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 echo "\n--- Create a new user ---\n\n";
 echo "Enter Name:";
