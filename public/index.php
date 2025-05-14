@@ -4,6 +4,8 @@ session_start();
 require("../functions/db.php");
 require("../functions/utils.php");
 
+$config = require($_SERVER['DOCUMENT_ROOT'] . "/../config.php");
+
 $loggedIn = getLoginStatus($conn);
 $totalMiles = getTotalMiles($conn);
 ?>
@@ -35,7 +37,7 @@ $totalMiles = getTotalMiles($conn);
     join the club! New members are always welcome and we have a lot of miles left to cover!
     </p>
     
-    <a><div class="primary-btn">Sponsor Us!</div></a>
+    <a href="<?php echo $config['donations_url'] ?>"><div class="primary-btn">Sponsor Us!</div></a>
 
     <section class="who-are-we-sec">
         

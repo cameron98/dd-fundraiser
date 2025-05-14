@@ -13,5 +13,6 @@ return array(
     'db_user' => '',
     'db_password' => '',
 
-    'base_url' => 'https://example.com'
+    'base_url' => 'https://example.com',
+    'donations_url' => ''
 );
