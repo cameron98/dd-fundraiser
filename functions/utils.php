@@ -51,10 +51,10 @@ function getTotalMiles($conn) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        return $row['miles'];
+        return ($row['miles'] != NULL) ? $row['miles'] : 0;
     }
     else {
-        return 0;
+        return FALSE;
     }
 }
 

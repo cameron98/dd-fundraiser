@@ -29,7 +29,7 @@ $totalMiles = getTotalMiles($conn);
 
 
 <section id="progress-block">
-    <progress max="1024" value="<?php echo $totalMiles ?>"></progress>
+    <progress max="1024" value="<?php echo $totalMiles; ?>"></progress>
     <p id="progress-bar-caption"><?php echo $totalMiles; ?> miles down, <?php echo 1024 - $totalMiles; ?> to go!</p>
     <p class="article-text">
     Dorset is 1,024 square miles in area and we, as a team, are going to walk, run, push or cycle 
