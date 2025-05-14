@@ -112,10 +112,8 @@ $totalMiles = getTotalMiles($conn);
                 echo "<li><div class='leaderboard-div'><img class='leaderboard-logo' src='$logo_url' alt='medal' /><span><p><strong>$name</strong> ($miles miles)</p></span></div></li>";
                 $i++;
             }
-        } else {
-            die($conn->error);
         }
-
+        
         ?>
         </ol>
         <?php 
