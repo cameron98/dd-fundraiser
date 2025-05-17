@@ -7,8 +7,10 @@ if (isset($_SESSION['sessionID'])) {
     die();
 }
 
-$sql = "SELECT * FROM sessions WHERE cookie='$cookie' AND session_start > ( NOW() - INTERVAL 3 DAY ) ";
-$result = $conn->query($sql);
+$statement = $conn->prepare("SELECT * FROM sessions WHERE cookie=? AND session_start > ( NOW() - INTERVAL 3 DAY ) ");
+$statement->bind_param("s", $cookie);
+$statement->execute();
+$result = $statement->get_result();
 
 if ($result->num_rows != 1) {
     $_SESSION = array();

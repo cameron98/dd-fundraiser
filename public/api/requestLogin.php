@@ -13,8 +13,10 @@ $base_url = $config['base_url'];
 
 // Check user exists in DB
 $email = sql_sanitise($_POST['email']);
-$sql = "SELECT * FROM users WHERE email='" . trim($email) ."'";
-$user_result = $conn->query($sql);
+$statement = $conn->prepare("SELECT * FROM users WHERE email=?");
+$statement->bind_param("s", trim($email));
+$statement->execute();
+$user_result = $statement->get_result();
 
 if ($user_result->num_rows > 0) {
     // Get user ID

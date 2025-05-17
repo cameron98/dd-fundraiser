@@ -14,10 +14,11 @@ if (!isset($_GET['key'])) {
 require("../../functions/db.php");
 require("../../functions/utils.php");
 
-$sql = "SELECT * FROM sessions WHERE session_secret='" . $_GET['key'] . "' AND session_start IS NULL";
-echo $sql;
+$statement = $conn->prepare("SELECT * FROM sessions WHERE session_secret=? AND session_start IS NULL");
+$statement->bind_param("s", $_GET['key']);
+$statement->execute();
+$session_result = $statement->get_result();
 
-$session_result = $conn->query($sql);
 if ($session_result == FALSE) {
     die("Could not query session database. Exiting...");
 } else {
@@ -31,11 +32,9 @@ if ($session_result == FALSE) {
 $session_cookie = genRand();
 $_SESSION['sessionID'] = $session_cookie;
 
-$sql = "UPDATE sessions SET cookie='" . $session_cookie . "', session_start = NOW() WHERE session_secret='" . $_GET['key'] . "' AND session_start IS NULL";
-if ($conn->query($sql) == FALSE) {
-    echo "Could not update database";
-    echo $conn->error;
-    die($conn->error);
-}
+$statement = $conn->prepare("UPDATE sessions SET cookie=?, session_start = NOW() WHERE session_secret=? AND session_start IS NULL");
+$statement->bind_param("ss", $session_cookie, $_GET['key']);
+$statement->execute();
+
 
 header("Location: /submitEntry.php");

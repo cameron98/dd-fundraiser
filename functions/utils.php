@@ -17,8 +17,10 @@ function genRand() {
 function getUserID($conn, $cookie) {
 
     $cookie = sql_sanitise($cookie);
-    $sql = "SELECT user_id FROM sessions WHERE cookie='$cookie'";
-    $result = $conn->query($sql);
+    $statement = $conn->prepare("SELECT user_id FROM sessions WHERE cookie=?");
+    $statement->bind_param("s", $cookie);
+    $statement->execute();
+    $result = $statement->get_result();
     if ($result != FALSE) {
         $row = $result->fetch_assoc();
         return $row['user_id'];
@@ -35,8 +37,10 @@ function getLoginStatus($conn) {
         return FALSE;
     }
     
-    $sql = "SELECT * FROM sessions WHERE cookie='$cookie' AND session_start > ( NOW() - INTERVAL 3 DAY ) ";
-    $result = $conn->query($sql);
+    $statement = $conn->prepare("SELECT * FROM sessions WHERE cookie=? AND session_start > ( NOW() - INTERVAL 3 DAY ) ");
+    $statement->bind_param("s", $cookie);
+    $statement->execute();
+    $result = $statement->get_result();
     
     if ($result->num_rows != 1) {
         $_SESSION = array();
@@ -59,13 +63,18 @@ function getTotalMiles($conn) {
 }
 
 function sql_sanitise($input) {
+    
+    // Replace some common SQL symbols which should not be present in any 
+    // inputs in this project
     $input = str_replace(";", "", $input);
     $input = str_replace("%", "", $input);
-    $input = str_replace("DROP", "", $input);
-    $input = str_replace("SELECT", "", $input);
     $input = str_replace("=", "", $input);
     $input = str_replace(">", "", $input);
     $input = str_replace("<", "", $input);
+
+    if (str_contains(strtolower($input), "drop") | str_contains(strtolower($input), "select")) {
+        die("SQL injection attempt detected. Exiting.");
+    }
 
     return $input;
 }
