@@ -270,6 +270,11 @@ footer {
   margin-right: 1rem;
 }
 
+.btn-ctn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media screen and (max-width: 1024px) {
   #center-block {
     display: flex;
