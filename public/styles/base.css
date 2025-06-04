@@ -270,9 +270,9 @@ footer {
   margin-right: 1rem;
 }
 
-.btn-ctn {
-  display: flex;
-  justify-content: space-evenly;
+.leaderboard-ctn-large {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 1024px) {
@@ -300,6 +300,16 @@ footer {
   .article-text {
     padding: 1.25rem 0.25rem;
   }
+
+  .btn-ctn {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .leaderboard-ctn-large {
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 1025px) {
@@ -321,5 +331,14 @@ footer {
 
   .article-text {
     padding: 1.25rem 2rem;
+  }
+
+  .btn-ctn {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .leaderboard-ctn-large {
+    width: 50%;
   }
 }

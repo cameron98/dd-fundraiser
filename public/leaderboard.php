@@ -30,7 +30,7 @@ $totalMiles = getTotalMiles($conn);
 <?php include("../includes/header.php") ?>
 
 
-    <div id="leaderboard-ctn" style="width: 50%; margin-left: auto; margin-right: auto;">
+    <div id="leaderboard-ctn" class="leaderboard-ctn-large">
         <h2 class="center-text">Leaderboard</h2>
         <ol id="leaderboard-list">
         <?php
