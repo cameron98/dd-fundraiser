@@ -116,13 +116,16 @@ $totalMiles = getTotalMiles($conn);
         
         ?>
         </ol>
-        <?php 
-        if ($loggedIn === TRUE) {
-            echo "<a href='/submitEntry.php'><div class='primary-btn'>New Entry</div></a>";
-        } else {
-            echo "<a href='/login.php'><div class='primary-btn'>Team Login</div></a>";
-        }
-        ?>
+        <div class='btn-ctn'>
+            <?php 
+            if ($loggedIn === TRUE) {
+                echo "<a href='/submitEntry.php'><div class='primary-btn'>New Entry</div></a>";
+                echo "<a href='/leaderboard.php'><div class='primary-btn'>Show All</div></a>";
+            } else {
+                echo "<a href='/login.php'><div class='primary-btn'>Team Login</div></a>";
+            }
+            ?>
+        </div>
     </div>
 </section>
 
